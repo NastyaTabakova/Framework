@@ -77,8 +77,9 @@ public class ZnwrCardPage extends AbstractPage
         return card.isEnabled();
     }
 
-    public ZnwrHomePage clickButtonClear(){
-        clearButtonLocator.click();
+     public ZnwrHomePage clickButtonClear(){
+        WebElement clear = fluentWaitForElementToBeClickable(driver,clearButtonLocator);
+        clear.click();
         return new ZnwrHomePage(driver);
     }
 
