@@ -35,9 +35,5 @@ public abstract class AbstractPage
                 .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class).until((ExpectedConditions.elementToBeClickable(by)));
     }
-    
-    protected static WebElement waitForElementLocatedBy(WebDriver driver, WebElement by) {
-        return new WebDriverWait(driver, 70)
-                .until(ExpectedConditions.visibilityOf(by));
-    }
+
 }
