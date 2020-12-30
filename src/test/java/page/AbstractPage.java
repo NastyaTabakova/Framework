@@ -28,6 +28,16 @@ public abstract class AbstractPage
                 .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class).until((ExpectedConditions.visibilityOf(by)));
     }
-
-
+    
+        protected static WebElement fluentWaitForElementToBeClickable(WebDriver driver, WebElement by) {
+        return new FluentWait<WebDriver>(driver)
+                .withTimeout(Duration.ofSeconds(70))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class).until((ExpectedConditions.elementToBeClickable(by)));
+    }
+    
+    protected static WebElement waitForElementLocatedBy(WebDriver driver, WebElement by) {
+        return new WebDriverWait(driver, 70)
+                .until(ExpectedConditions.visibilityOf(by));
+    }
 }
