@@ -24,7 +24,7 @@ public abstract class AbstractPage
 
     protected static WebElement fluentWaitForElementLocatedBy(WebDriver driver, WebElement by) {
         return new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(50))
+                .withTimeout(Duration.ofSeconds(70))
                 .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class).until((ExpectedConditions.visibilityOf(by)));
     }
